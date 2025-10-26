@@ -50,7 +50,6 @@
       gap: 1rem;
       background-color: #1e1e1e;
       padding: 1rem;
-      animation: fadeIn 1.2s ease-in-out;
     }
 
     nav button {
@@ -72,20 +71,33 @@
       background-color: #3981FF;
     }
 
+    .tab-wrapper {
+      position: relative;
+      min-height: 600px;
+      overflow: hidden;
+    }
+
     .tab-content {
-      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
       max-width: 800px;
       margin: 2rem auto;
       padding: 0 1rem;
       opacity: 0;
+      visibility: hidden;
       transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+      z-index: 0;
     }
 
     .tab-content.active {
-      display: block;
+      position: relative;
       opacity: 1;
+      visibility: visible;
       transform: translateY(0);
+      z-index: 1;
     }
 
     iframe {
@@ -105,7 +117,6 @@
       padding: 2rem 1rem;
       font-size: 0.9rem;
       color: #666;
-      animation: fadeIn 1.5s ease-in-out;
     }
 
     .nav-button {
@@ -136,10 +147,6 @@
     }
 
     @media (max-width: 600px) {
-      header {
-        padding: 1.5rem 1rem;
-      }
-
       header img {
         width: 90px;
         height: 90px;
@@ -204,116 +211,125 @@
     <button class="tab-btn" data-tab="personal">Personal</button>
   </nav>
 
+  <div class="tab-wrapper">
   <section id="overview" class="tab-content active">
     <h3>Overview</h3>
+
     <p>Derrick Richard is a student at Poth High School, with a graduation year of 2029. Derrick enjoys playing saxophone, composing music, web development, and finance.</p>
     <h2>Featured Score - Animal I Have Become - Three Days Grace</h2>
     <iframe src="https://flat.io/embed/68fd10b7eaf62d602e4bbb16?_l=true&sharingKey=302bf747450065118c84efb5ad862f4bad7d6fe7c28af337ec311fa3910915dce5e73bee5e823de3fc0e88da1e633acf2dab3a1af1fd034a582dea31a3744398&layout=responsive" allowfullscreen allow="autoplay; midi"></iframe>
   </section>
+</div>
 
-  <section id="composing" class="tab-content">
-    <h3>Composing</h3>
-    <p>Derrick Richard is an avid music composer, mainly focusing on marching band arrangements, but occasionally creating concert pieces and solos. His most recent score is an arrangement of <em>Animal I Have Become</em> by Three Days Grace, adapted for marching band.</p>
-    <h4>Featured Score</h4>
-    <p><strong>Animal I Have Become – Three Days Grace (Marching Band Arrangement)</strong></p>
-    <iframe src="https://flat.io/embed/68fd10b7eaf62d602e4bbb16?_l=true&sharingKey=302bf747450065118c84efb5ad862f4bad7d6fe7c28af337ec311fa3910915dce5e73bee5e823de3fc0e88da1e633acf2dab3a1af1fd034a582dea31a3744398&layout=responsive" allowfullscreen allow="autoplay; midi"></iframe>
-    <h4 style="margin-top: 2rem;">Derrick's Flat.io Profile</h4>
-    <a href="https://flat.io/@derrick_richard" target="_blank" class="nav-button">Visit Derrick's Flat.io Profile</a>
-  </section>
+    <section id="composing" class="tab-content">
+      <h3>Composing</h3>
+      <p>Derrick Richard is an avid music composer, mainly focusing on marching band arrangements, but occasionally creating concert pieces and solos. His most recent score is an arrangement of <em>Animal I Have Become</em> by Three Days Grace, adapted for marching band.</p>
+      <h4>Featured Score</h4>
+      <p><strong>Animal I Have Become – Three Days Grace (Marching Band Arrangement)</strong></p>
+      <iframe src="https://flat.io/embed/68fd10b7eaf62d602e4bbb16?_l=true&sharingKey=302bf747450065118c84efb5ad862f4bad7d6fe7c28af337ec311fa3910915dce5e73bee5e823de3fc0e88da1e633acf2dab3a1af1fd034a582dea31a3744398&layout=responsive" allowfullscreen allow="autoplay; midi"></iframe>
+      <h4 style="margin-top: 2rem;">Derrick's Flat.io Profile</h4>
+      <a href="https://flat.io/@derrick_richard" target="_blank" class="nav-button">Visit Derrick's Flat.io Profile</a>
+    </section>
 
-  <section id="webdev" class="tab-content">
-    <h3>Web Development</h3>
-    <p>Derrick Richard is a web developer, focusing mainly on frontend development. Derrick's Most recent project is called Storm Generation, which is a tool for teachers to make groups or pick random names for their classroom.</p>
-    <h2>Link to Storm Generation</h2>
-    <a href="https://stormgeneration.github.io/StormGeneration/" target="_blank" class="nav-button">Visit Storm Generation</a>
-  </section>
+    <section id="webdev" class="tab-content">
+      <h3>Web Development</h3>
+      <p>Derrick Richard is a web developer, focusing mainly on frontend development. Derrick's most recent project is called Storm Generation, a tool for teachers to make groups or pick random names for their classroom.</p>
+      <h2>Link to Storm Generation</h2>
+      <a href="https://stormgeneration.github.io/StormGeneration/" target="_blank" class="nav-button">Visit Storm Generation</a>
+    </section>
 
-  <section id="skills" class="tab-content">
-    <h3>Skills</h3>
-    <p>Below is a list of skills Derrick Richard has obtained over the years.</p>
-    <ul>
-      <li>HTML Programming</li>
-      <li>Cascade Styling</li>
-      <li>Javascript Programming</li>
-      <li>Java Programming</li>
-      <li>Music Composition</li>
-      <li>Saxophone Performance</li>
-      <li>Finance tracking and Management</li>
-    </ul>
-  </section>
+    <section id="skills" class="tab-content">
+      <h3>Skills</h3>
+      <p>Below is a list of skills Derrick Richard has obtained over the years.</p>
+      <ul>
+        <li>HTML Programming</li>
+        <li>Cascade Styling</li>
+        <li>Javascript Programming</li>
+        <li>Java Programming</li>
+                <li>Music Composition</li>
+        <li>Saxophone Performance</li>
+        <li>Finance Tracking and Management</li>
+      </ul>
+    </section>
 
     <section id="achievements" class="tab-content">
-    <h3>Achievements</h3>
-    <p>Below is a list of achievements Derrick Richard has accomplished over the years.</p>
-    <ul>
-      <li>Outstanding Woodwind Musician • 2023</li>
-      <li>Esprit Ee Corps • 2025</li>
-      <li>5:30 Mile Time • 2023–2025</li>
-      <li>Second Chair Tenor Saxophonist – ATSSB Region Band • 2025</li>
-    </ul>
-  </section>
+      <h3>Achievements</h3>
+      <p>Below is a list of achievements Derrick Richard has accomplished over the years.</p>
+      <ul>
+        <li>Outstanding Woodwind Musician • 2023</li>
+        <li>Esprit Ee Corps • 2025</li>
+        <li>5:30 Mile Time • 2023–2025</li>
+        <li>Second Chair Tenor Saxophonist – ATSSB Region Band • 2025</li>
+      </ul>
+    </section>
 
-  <section id="roles" class="tab-content">
-    <h3>Roles</h3>
-    <p>Below is a list of current and previous roles Derrick Richard has held.</p>
-    <ul>
-      <li>Poth TAFE Treasurer</li>
-    </ul>
-  </section>
+    <section id="roles" class="tab-content">
+      <h3>Roles</h3>
+      <p>Below is a list of current and previous roles Derrick Richard has held.</p>
+      <ul>
+        <li>Poth TAFE Treasurer</li>
+      </ul>
+    </section>
 
-  <section id="goals" class="tab-content">
-    <h3>Future Goals</h3>
-    <p>Here are some of Derrick Richard's aspirations and long-term goals:</p>
-    <ul>
-      <li>Become a U.S. Navy SEAL Sniper</li>
-      <li>Earn a Degree in Music</li>
-      <li>Become a Professional Musician</li>
-    </ul>
-  </section>
+    <section id="goals" class="tab-content">
+      <h3>Future Goals</h3>
+      <p>Here are some of Derrick Richard's aspirations and long-term goals:</p>
+      <ul>
+        <li>Become a U.S. Navy SEAL Sniper</li>
+        <li>Earn a Degree in Music</li>
+        <li>Become a Professional Musician</li>
+      </ul>
+    </section>
 
-  <section id="personal" class="tab-content">
-    <h3>Personal</h3>
-    <p>Below is some personal info about Derrick Richard.</p>
-    <h4>Favorite Music Artists</h4>
-    <ul>
-      <li>Linkin Park</li>
-      <li>Slipknot</li>
-      <li>30 Seconds To Mars</li>
-      <li>System Of A Down</li>
-      <li>Meshuggah</li>
-    </ul>
-    <h4>Musical Instruments</h4>
-    <ul>
-      <li>Alto Saxophone</li>
-      <li>Tenor Saxophone</li>
-      <li>Baritone Saxophone</li>
-    </ul>
-    <h4>Favorite Sport</h4>
-    <ul>
-      <li>Track and Field</li>
-    </ul>
-    <h4>Longest Distance Ever Ran</h4>
-    <ul>
-      <li>12 Miles • Time: 1 hour and 22 minutes</li>
-    </ul>
-  </section>
+    <section id="personal" class="tab-content">
+      <h3>Personal</h3>
+      <p>Below is some personal info about Derrick Richard.</p>
+      <h4>Favorite Music Artists</h4>
+      <ul>
+        <li>Linkin Park</li>
+        <li>Slipknot</li>
+        <li>30 Seconds To Mars</li>
+        <li>System Of A Down</li>
+        <li>Meshuggah</li>
+      </ul>
+      <h4>Musical Instruments</h4>
+      <ul>
+        <li>Alto Saxophone</li>
+        <li>Tenor Saxophone</li>
+        <li>Baritone Saxophone</li>
+      </ul>
+      <h4>Favorite Sport</h4>
+      <ul>
+        <li>Track and Field</li>
+      </ul>
+      <h4>Longest Distance Ever Ran</h4>
+      <ul>
+        <li>12 Miles • Time: 1 hour and 22 minutes</li>
+      </ul>
+    </section>
+  </div>
 
   <footer>
     2025 Derrick Richard
   </footer>
-
   <script>
     const buttons = document.querySelectorAll('.tab-btn');
     const tabs = document.querySelectorAll('.tab-content');
 
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        tabs.forEach(tab => tab.classList.remove('active'));
+        const targetId = btn.dataset.tab;
 
+        buttons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const activeTab = document.getElementById(btn.dataset.tab);
-        activeTab.classList.add('active');
+
+        tabs.forEach(tab => {
+          if (tab.id === targetId) {
+            tab.classList.add('active');
+          } else {
+            tab.classList.remove('active');
+          }
+        });
       });
     });
   </script>
