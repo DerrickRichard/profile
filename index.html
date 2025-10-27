@@ -348,6 +348,32 @@
         });
       });
     });
+
+    
+  let key4 = false;
+  let key5 = false;
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '4') key4 = true;
+    if (e.key === '5') key5 = true;
+
+    const webdevTab = document.getElementById('webdev');
+    if (webdevTab.classList.contains('active') && key4 && key5) {
+      const input = prompt("Enter password to access all projects:");
+      if (input === "allprojects") {
+        window.location.href = "https://derrickrichard.github.io/allprojects/";
+      } else {
+        alert("Incorrect password.");
+      }
+      key4 = false;
+      key5 = false;
+    }
+  });
+
+  document.addEventListener('keyup', (e) => {
+    if (e.key === '4') key4 = false;
+    if (e.key === '5') key5 = false;
+  });
   </script>
 </body>
 </html>
