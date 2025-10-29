@@ -3,14 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#121212" />
+  <meta name="description" content="Derrick Richard's personal profile showcasing music, web development, achievements, and goals." />
   <link rel="icon" href="me.webp" type="image/x-icon" />
   <title>Derrick Richard - Profile</title>
   <style>
+    :root {
+      --bg-dark: #121212;
+      --bg-light: #1e1e1e;
+      --color-primary: #3981FF;
+      --color-text: #f0f0f0;
+      --color-muted: #aaa;
+    }
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #121212;
-      color: #f0f0f0;
+      background-color: var(--bg-dark);
+      color: var(--color-text);
       transition: background-color 0.3s ease;
     }
 
@@ -25,7 +35,7 @@
       height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid #3981FF;
+      border: 2px solid var(--color-primary);
       transition: transform 0.3s ease;
     }
 
@@ -40,7 +50,7 @@
 
     h2 {
       font-weight: normal;
-      color: #aaa;
+      color: var(--color-muted);
       margin-bottom: 1rem;
     }
 
@@ -49,7 +59,7 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 1rem;
-      background-color: #1e1e1e;
+      background-color: var(--bg-light);
       padding: 1rem;
     }
 
@@ -63,22 +73,24 @@
       transition: background 0.3s, transform 0.3s;
     }
 
-    nav button:hover {
-      background-color: #3981FF;
+    nav button:hover,
+    nav button:focus {
+      background-color: var(--color-primary);
       transform: scale(1.05);
+      outline: none;
     }
 
     nav button.active {
-      background-color: #3981FF;
+      background-color: var(--color-primary);
     }
 
-    .tab-wrapper {
+    main {
       position: relative;
       min-height: 600px;
       overflow: hidden;
     }
 
-    .tab-content {
+    section.tab-content {
       position: absolute;
       top: 0;
       left: 0;
@@ -93,7 +105,7 @@
       z-index: 0;
     }
 
-    .tab-content.active {
+    section.tab-content.active {
       position: relative;
       opacity: 1;
       visibility: visible;
@@ -110,7 +122,7 @@
     }
 
     iframe:hover {
-      box-shadow: 0 0 10px #3981FF;
+      box-shadow: 0 0 10px var(--color-primary);
     }
 
     footer {
@@ -122,7 +134,7 @@
 
     .nav-button {
       display: inline-block;
-      background-color: #3981FF;
+      background-color: var(--color-primary);
       color: #fff;
       padding: 0.75rem 1.25rem;
       border-radius: 6px;
@@ -134,6 +146,11 @@
     .nav-button:hover {
       background-color: #5aa0ff;
       transform: scale(1.05);
+    }
+
+    ul {
+      margin-bottom: 1rem;
+      padding-left: 1.2rem;
     }
 
     @keyframes fadeIn {
@@ -175,7 +192,7 @@
         padding: 0.6rem 1rem;
       }
 
-      .tab-content {
+      section.tab-content {
         margin: 1.5rem auto;
         padding: 0 0.5rem;
       }
@@ -201,195 +218,248 @@
     <h2>Poth, Texas</h2>
   </header>
 
-  <nav>
-    <button class="tab-btn active" data-tab="overview">Overview</button>
-    <button class="tab-btn" data-tab="composing">Composing</button>
-    <button class="tab-btn" data-tab="webdev">Web Development</button>
-    <button class="tab-btn" data-tab="skills">Skills</button>
-    <button class="tab-btn" data-tab="achievements">Achievements</button>
-    <button class="tab-btn" data-tab="roles">Roles</button>
-    <button class="tab-btn" data-tab="goals">Future Goals</button>
-    <button class="tab-btn" data-tab="personal">Personal</button>
+  <nav role="tablist">
+    <button class="tab-btn active" data-tab="overview" role="tab" aria-selected="true">Overview</button>
+    <button class="tab-btn" data-tab="composing" role="tab" aria-selected="false">Composing</button>
+    <button class="tab-btn" data-tab="webdev" role="tab" aria-selected="false">Web Development</button>
+    <button class="tab-btn" data-tab="skills" role="tab" aria-selected="false">Skills</button>
+    <button class="tab-btn" data-tab="achievements" role="tab" aria-selected="false">Achievements</button>
+    <button class="tab-btn" data-tab="roles" role="tab" aria-selected="false">Roles</button>
+    <button class="tab-btn" data-tab="goals" role="tab" aria-selected="false">Future Goals</button>
+    <button class="tab-btn" data-tab="personal" role="tab" aria-selected="false">Personal</button>
   </nav>
 
-  <div class="tab-wrapper">
-    <section id="overview" class="tab-content active">
-      <h3>Overview</h3>
-      <p>Derrick Richard is a student at Poth High School, with a graduation year of 2029. Derrick enjoys playing saxophone, composing music, web development, and finance.</p>
-      <h2>Featured Score - Animal I Have Become - Three Days Grace</h2>
-      <iframe src="https://flat.io/embed/68fd10b7eaf62d602e4bbb16?_l=true&sharingKey=302bf747450065118c84efb5ad862f4bad7d6fe7c28af337ec311fa3910915dce5e73bee5e823de3fc0e88da1e633acf2dab3a1af1fd034a582dea31a3744398&layout=responsive" allowfullscreen allow="autoplay; midi"></iframe>
-    </section>
-
-    <section id="composing" class="tab-content">
-      <h3>Composing</h3>
-      <p>Derrick Richard is an avid music composer, mainly focusing on marching band arrangements, but occasionally creating concert pieces and solos. His most recent score is an arrangement of <em>Animal I Have Become</em> by Three Days Grace, adapted for marching band.</p>
-      <h4>Featured Score</h4>
-      <p><strong>Animal I Have Become – Three Days Grace (Marching Band Arrangement)</strong></p>
-      <iframe src="https://flat.io/embed/68fd10b7eaf62d602e4bbb16?_l=true&sharingKey=302bf747450065118c84efb5ad862f4bad7d6fe7c28af337ec311fa3910915dce5e73bee5e823de3fc0e88da1e633acf2dab3a1af1fd034a582dea31a3744398&layout=responsive" allowfullscreen allow="autoplay; midi"></iframe>
-      <h4 style="margin-top: 2rem;">Derrick's Flat.io Profile</h4>
-      <a href="https://flat.io/@derrick_richard" target="_blank" class="nav-button">Visit Derrick's Flat.io Profile</a>
-    </section>
-
-    <section id="webdev" class="tab-content">
-  <h3>Web Development</h3>
-  <p>Derrick Richard is a web developer focused on frontend design and interactive tools. He enjoys building clean, functional interfaces that solve real-world problems. Below are some of his featured projects:</p>
-      <hr>
-<h4>Security Projects</h4>
-  <h4>FileLock</h4>
-  <p>Encrypt files into self-unlocking HTML pages with password protection and expiration options.</p>
-  <a href="https://derrickrichard.github.io/FileLock/" target="_blank" class="nav-button">Visit FileLock</a>
-
-  <h4 style="margin-top: 2rem;">FileProof</h4>
-  <p>Compare file hashes to detect unauthorized changes. Lightweight and browser-based.</p>
-  <a href="https://derrickrichard.github.io/FileProof/" target="_blank" class="nav-button">Visit FileProof</a>
+  <main class="tab-wrapper">
+   <div class="tab-wrapper">
+  <!-- Overview -->
+  <section id="overview" class="tab-content active">
+    <h3>Overview</h3>
+    <p>Derrick Richard is a student at Poth High School, graduating in 2029. He enjoys playing saxophone, composing music, web development, and finance.</p>
 <hr>
-      <h4>Creative Projects</h4>
-  <h4 style="margin-top: 2rem;">Storm Generation</h4>
-  <p>A tool for teachers to fairly create groups and randomly select names in their classroom.</p>
-  <a href="https://stormgeneration.github.io/StormGeneration/" target="_blank" class="nav-button">Visit Storm Generation</a>
+    <h4>Featured Score</h4>
+    <p><strong>Animal I Have Become – Three Days Grace</strong></p>
+    <iframe src="https://flat.io/embed/68fd10b7eaf62d602e4bbb16?_l=true&sharingKey=302bf747450065118c84efb5ad862f4bad7d6fe7c28af337ec311fa3910915dce5e73bee5e823de3fc0e88da1e633acf2dab3a1af1fd034a582dea31a3744398&layout=responsive" allowfullscreen allow="autoplay; midi"></iframe>
+  </section>
+
+  <!-- Composing -->
+  <section id="composing" class="tab-content">
+    <h3>Composing</h3>
+    <p>Derrick focuses on marching band arrangements and drum cadences, with occasional concert pieces and solos.</p>
 <hr>
-      <h4>Poth TAFE Projects</h4>
-  <h4 style="margin-top: 2rem;">Officer Dashboard</h4>
-  <p>Private dashboard for Poth TAFE officers. Password required: <strong>pothtafe2025</strong></p>
-  <a href="https://pothtafe.github.io/Dashboard/" target="_blank" class="nav-button">Visit Officer Dashboard</a>
+    <h4>Featured Score</h4>
+    <p><strong>Animal I Have Become – Marching Band Arrangement</strong></p>
+    <iframe src="https://flat.io/embed/68fd10b7eaf62d602e4bbb16?_l=true&sharingKey=302bf747450065118c84efb5ad862f4bad7d6fe7c28af337ec311fa3910915dce5e73bee5e823de3fc0e88da1e633acf2dab3a1af1fd034a582dea31a3744398&layout=responsive" allowfullscreen allow="autoplay; midi"></iframe>
 
-  <h4 style="margin-top: 2rem;">Member Dashboard</h4>
-  <p>Dashboard for Poth TAFE members to access internal resources.</p>
-  <a href="https://pothtafe.github.io/MemberDashboard/" target="_blank" class="nav-button">Visit Member Dashboard</a>
+    <h4>Flat.io Profile</h4>
+    <a href="https://flat.io/@derrick_richard" target="_blank" class="nav-button">Visit Derrick's Flat.io Profile</a>
+  </section>
 
-  <h4 style="margin-top: 2rem;">Public Page</h4>
-  <p>Public-facing page for Poth TAFE with general information and updates.</p>
-  <a href="https://pothtafe.github.io/pothtafe/" target="_blank" class="nav-button">Visit Public Page</a>
-
-  <h4 style="margin-top: 2rem;">Main Page</h4>
-  <p>Central landing page for all Poth TAFE resources and navigation.</p>
-  <a href="https://pothtafe.github.io/home/" target="_blank" class="nav-button">Visit Main Page</a>
+  <!-- Web Development -->
+  <section id="webdev" class="tab-content">
+    <h3>Web Development</h3>
+    <p>Derrick builds clean, functional interfaces and interactive tools. Below are some featured projects:</p>
 <hr>
-  <h4 style="margin-top: 2rem;">More Projects Coming Soon</h4>
-  <p>Derrick is actively working on new tools and experiments in JavaScript, CSS animations, and responsive design. Stay tuned!</p>
-</section>
+    <h4>Security Projects</h4>
+    <p><strong>FileLock</strong> – Encrypt files into self-unlocking HTML pages with password and expiration options.</p>
+    <a href="https://derrickrichard.github.io/FileLock/" target="_blank" class="nav-button">Visit FileLock</a>
 
-    <section id="skills" class="tab-content">
-      <h3>Skills</h3>
-      <p>Below is a list of skills Derrick Richard has obtained over the years.</p>
-      <ul>
-        <li>HTML Programming</li>
-        <li>Cascade Styling</li>
-        <li>Javascript Programming</li>
-        <li>Java Programming</li>
-                <li>Music Composition</li>
-        <li>Saxophone Performance</li>
-        <li>Finance Tracking and Management</li>
-      </ul>
-    </section>
+    <p><strong>FileProof</strong> – Compare file hashes to detect unauthorized changes. Lightweight and browser-based.</p>
+    <a href="https://derrickrichard.github.io/FileProof/" target="_blank" class="nav-button">Visit FileProof</a>
 
-    <section id="achievements" class="tab-content">
-      <h3>Achievements</h3>
-      <p>Below is a list of achievements Derrick Richard has accomplished over the years.</p>
-      <ul>
-        <li>Outstanding Woodwind Musician • 2023</li>
-        <li>Esprit Ee Corps • 2025</li>
-        <li>5:30 Mile Time • 2023–2025</li>
-        <li>Second Chair Tenor Saxophonist – ATSSB Region Band • 2025</li>
-      </ul>
-    </section>
+    <hr>
+    <h4>Creative Projects</h4>
+    <p><strong>Storm Generation</strong> – A tool for teachers to fairly create groups and randomly select names.</p>
+    <a href="https://stormgeneration.github.io/StormGeneration/" target="_blank" class="nav-button">Visit Storm Generation</a>
+<p><strong>This Site</strong> Derrick's Personal Profile.</p>
+    <hr>
+    <h4>Poth TAFE Projects</h4>
+    <p><strong>Officer Dashboard</strong> – Private dashboard for TAFE officers. Password: <code>pothtafe2025</code></p>
+    <a href="https://pothtafe.github.io/Dashboard/" target="_blank" class="nav-button">Visit Officer Dashboard</a>
 
-    <section id="roles" class="tab-content">
-      <h3>Roles</h3>
-      <p>Below is a list of current and previous roles Derrick Richard has held.</p>
-      <ul>
-        <li>Poth TAFE Treasurer</li>
-      </ul>
-    </section>
+    <p><strong>Member Dashboard</strong> – Internal resources for TAFE members.</p>
+    <a href="https://pothtafe.github.io/MemberDashboard/" target="_blank" class="nav-button">Visit Member Dashboard</a>
 
-    <section id="goals" class="tab-content">
-      <h3>Future Goals</h3>
-      <p>Here are some of Derrick Richard's aspirations and long-term goals:</p>
-      <ul>
-        <li>Become a U.S. Navy SEAL Sniper</li>
-        <li>Earn a Degree in Music</li>
-        <li>Become a Professional Musician</li>
-      </ul>
-    </section>
+    <p><strong>Public Page</strong> – General information and updates.</p>
+    <a href="https://pothtafe.github.io/pothtafe/" target="_blank" class="nav-button">Visit Public Page</a>
 
-    <section id="personal" class="tab-content">
-      <h3>Personal</h3>
-      <p>Below is some personal info about Derrick Richard.</p>
-      <h4>Favorite Music Artists</h4>
-      <ul>
-        <li>Linkin Park</li>
-        <li>Slipknot</li>
-        <li>30 Seconds To Mars</li>
-        <li>System Of A Down</li>
-        <li>Meshuggah</li>
-      </ul>
-      <h4>Musical Instruments</h4>
-      <ul>
-        <li>Alto Saxophone</li>
-        <li>Tenor Saxophone</li>
-        <li>Baritone Saxophone</li>
-      </ul>
-      <h4>Favorite Sport</h4>
-      <ul>
-        <li>Track and Field</li>
-      </ul>
-      <h4>Longest Distance Ever Ran</h4>
-      <ul>
-        <li>12 Miles • Time: 1 hour and 22 minutes</li>
-      </ul>
-    </section>
-  </div>
+    <p><strong>Main Page</strong> – Central landing page for all TAFE resources.</p>
+    <a href="https://pothtafe.github.io/home/" target="_blank" class="nav-button">Visit Main Page</a>
 
-    <footer>
-  <p style="font-size: 0.9rem; color: #aaa; line-height: 1.6;">
-    <a href="https://derrickrichard.github.io/profile/" target="_blank" rel="noopener noreferrer" style="color: #3981FF; text-decoration: none;">Derrick Richard's Profile</a> by
-    <a href="https://derrickrichard.github.io/profile/" target="_blank" rel="noopener noreferrer" style="color: #3981FF; text-decoration: none;">Derrick Richard</a> is marked
-    <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" style="color: #3981FF; text-decoration: none;">CC0 1.0 Universal</a>
-    <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" style="max-width: 1em; max-height: 1em; margin-left: .2em; vertical-align: middle;">
-    <img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg" alt="Zero" style="max-width: 1em; max-height: 1em; margin-left: .2em; vertical-align: middle;">
-  </p>
-</footer>
+    <hr>
+    <h4>More Projects Coming Soon</h4>
+    <p>Derrick is actively working on new tools and experiments in JavaScript, CSS animations, and responsive design.</p>
+  </section>
 
-  <script>
-    const buttons = document.querySelectorAll('.tab-btn');
-    const tabs = document.querySelectorAll('.tab-content');
+  <!-- Skills -->
+  <section id="skills" class="tab-content">
+    <h3>Skills</h3>
+    <p>Here are some of Derrick Richard's technical and creative skills.</p>
+<hr>
+    <h4>Programming</h4>
+    <ul>
+      <li>HTML</li>
+      <li>CSS (Cascade Styling)</li>
+      <li>JavaScript</li>
+      <li>Java</li>
+    </ul>
+<hr>
+    <h4>Music</h4>
+    <ul>
+      <li>Music Composition</li>
+      <li>Saxophone Performance</li>
+    </ul>
+<hr>
+    <h4>Finance</h4>
+    <ul>
+      <li>Finance Tracking and Management</li>
+    </ul>
+    <hr>
+  </section>
 
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetId = btn.dataset.tab;
+  <!-- Achievements -->
+  <section id="achievements" class="tab-content">
+    <h3>Achievements</h3>
+    <p>Notable accomplishments Derrick Richard has earned.</p>
+    <hr>
+    <ul>
+      <li>Outstanding Woodwind Musician – 2023</li>
+      <li>Esprit Ee Corps – 2025</li>
+      <li>5:30 Mile Time – 2023–2025</li>
+      <li>Second Chair Tenor Saxophonist – ATSSB Region Band – 2025</li>
+    </ul>
+  </section>
 
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+  <!-- Roles -->
+  <section id="roles" class="tab-content">
+    <h3>Roles</h3>
+    <p>Current and past leadership and technical roles.</p>
+    <hr>
 
-        tabs.forEach(tab => {
-          if (tab.id === targetId) {
-            tab.classList.add('active');
-          } else {
-            tab.classList.remove('active');
-          }
-        });
+    <h4>Poth TAFE</h4>
+    <ul>
+      <li>Treasurer</li>
+      <li>Websites Manager</li>
+    </ul>
+<hr>
+    <h4>Poth Robotics</h4>
+    <ul>
+      <li>Programmer</li>
+      <li>Website Manager</li>
+      <li>Database Manager</li>
+    </ul>
+  </section>
+
+  <!-- Future Goals -->
+  <section id="goals" class="tab-content">
+    <h3>Future Goals</h3>
+    <p>Derrick's aspirations and long-term ambitions.</p>
+    <hr>
+    <ul>
+      <li>Become a U.S. Navy SEAL Sniper</li>
+      <li>Earn a Degree in Music</li>
+      <li>Become a Professional Musician</li>
+      <li>Join DCI as a Trumpetist</li>
+      <li>Create his own Operating System</li>
+      <li>Launch and grow multiple businesses, with a focus on finance and programming</li>
+    </ul>
+  </section>
+
+  <!-- Personal -->
+  <section id="personal" class="tab-content">
+    <h3>Personal</h3>
+    <p>More about Derrick Richard's interests and lifestyle.</p>
+    <hr>
+
+    <h4>Favorite Music Artists</h4>
+    <ul>
+      <li>Linkin Park</li>
+      <li>Slipknot</li>
+      <li>30 Seconds To Mars</li>
+      <li>System Of A Down</li>
+      <li>Meshuggah</li>
+    </ul>
+
+    <h4>Musical Instruments</h4>
+    <ul>
+      <li>Alto Saxophone</li>
+      <li>Tenor Saxophone</li>
+      <li>Baritone Saxophone</li>
+    </ul>
+
+    <h4>Favorite Sport</h4>
+    <ul>
+      <li>Track and Field</li>
+    </ul>
+
+    <h4>Longest Distance Ever Ran</h4>
+    <ul>
+      <li>12 Miles – Time: 1 hour and 22 minutes</li>
+    </ul>
+  </section>
+</div>
+</main>
+
+  <footer>
+    <p>
+      <a href="https://derrickrichard.github.io/profile/" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: none;">Derrick Richard's Profile</a> by
+      <a href="https://derrickrichard.github.io/profile/" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: none;">Derrick Richard</a> is marked
+      <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: none;">CC0 1.0 Universal</a>
+      <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" style="max-width: 1em; max-height: 1em; margin-left: .2em; vertical-align: middle;">
+      <img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg" alt="Zero" style="max-width: 1em; max-height: 1em; margin-left: .2em; vertical-align: middle;">
+    </p>
+  </footer>
+
+    <script>
+  const buttons = document.querySelectorAll('.tab-btn');
+  const tabs = document.querySelectorAll('.tab-content');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.tab;
+
+      // Update button states
+      buttons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
       });
-    });
 
-    
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      // Update tab visibility
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+        tab.setAttribute('hidden', 'true');
+      });
+
+      const activeTab = document.getElementById(targetId);
+      activeTab.classList.add('active');
+      activeTab.removeAttribute('hidden');
+    });
+  });
+
+  // Secret key combo logic
   let key4 = false;
   let key5 = false;
+  let comboTimer;
 
   document.addEventListener('keydown', (e) => {
     if (e.key === '4') key4 = true;
     if (e.key === '5') key5 = true;
 
-    const webdevTab = document.getElementById('webdev');
-    if (webdevTab.classList.contains('active') && key4 && key5) {
-      const input = prompt("Enter password to access all projects:");
-      if (input === "allprojects") {
-        window.location.href = "https://derrickrichard.github.io/allprojects/";
-      } else {
-        alert("Incorrect password.");
+    clearTimeout(comboTimer);
+    comboTimer = setTimeout(() => {
+      if (key4 && key5 && document.getElementById('webdev').classList.contains('active')) {
+        const input = prompt("Enter password to access all projects:");
+        if (input === "allprojects") {
+          window.location.href = "https://derrickrichard.github.io/allprojects/";
+        } else {
+          alert("Incorrect password.");
+        }
       }
       key4 = false;
       key5 = false;
-    }
+    }, 300);
   });
 
   document.addEventListener('keyup', (e) => {
@@ -397,5 +467,3 @@
     if (e.key === '5') key5 = false;
   });
   </script>
-</body>
-</html>
