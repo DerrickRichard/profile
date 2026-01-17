@@ -3,29 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#121212" />
+  <meta name="theme-color" content="#0f172a" />
   
-  <!-- SEO Metadata -->
   <title>Derrick Richard | Student, Musician & Programmer</title>
   <meta name="description" content="Personal profile of Derrick Richard. Showcasing music composition, web development projects (CensorCore, CoreChat), and leadership roles at Poth High School." />
   <meta name="keywords" content="Derrick Richard, Poth High School, TAFE Treasurer, CensorCore, Music Composition, Web Development, Java, Saxophone" />
   <meta name="author" content="Derrick Richard" />
   <link rel="canonical" href="https://derrickrichard.github.io/profile/" />
 
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://derrickrichard.github.io/profile/" />
   <meta property="og:title" content="Derrick Richard - Profile" />
   <meta property="og:description" content="Explore Derrick Richard's projects in programming, music composition, and his roles in Poth TAFE and Robotics." />
   <meta property="og:image" content="https://derrickrichard.github.io/profile/me.png" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Derrick Richard" />
   <meta name="twitter:description" content="Student at Poth High School, Musician, and Software Developer." />
   <meta name="twitter:image" content="https://derrickrichard.github.io/profile/me.png" />
 
-  <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -61,206 +57,283 @@
 
   <link rel="icon" href="me.png" type="image/x-icon" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
     :root {
-      --bg-dark: #121212;
-      --bg-light: #1e1e1e;
-      --color-primary: #3981FF;
-      --color-text: #f0f0f0;
-      --color-muted: #aaa;
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --primary: #6366f1;
+      --primary-hover: #818cf8;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.08);
+      --glass: rgba(30, 41, 59, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
     }
 
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--color-text);
-      transition: background-color 0.3s ease;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.1) 0, transparent 50%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
       text-align: center;
-      padding: 2rem 1rem;
-      animation: fadeIn 1s ease-in-out;
+      padding: 4rem 1rem 2rem;
+      animation: fadeIn 0.8s ease-out;
     }
 
     header img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
+      width: 140px;
+      height: 140px;
+      border-radius: 40px;
       object-fit: cover;
-      border: 2px solid var(--color-primary);
-      transition: transform 0.3s ease;
+      padding: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     header img:hover {
-      transform: scale(1.05);
+      transform: scale(1.05) rotate(3deg);
+      border-color: var(--primary);
     }
 
     h1 {
-      margin: 1rem 0 0.5rem;
-      font-size: 2rem;
+      margin: 1.5rem 0 0.25rem;
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      background: linear-gradient(to right, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     h2 {
-      font-weight: normal;
-      color: var(--color-muted);
-      margin-bottom: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 2rem;
     }
 
     nav {
+      position: sticky;
+      top: 1rem;
+      z-index: 100;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 1rem;
-      background-color: var(--bg-light);
-      padding: 1rem;
+      gap: 0.5rem;
+      margin: 0 auto 3rem;
+      padding: 0.6rem;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      max-width: fit-content;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
     }
 
     nav button {
-      background-color: #2a2a2a;
-      color: #fff;
+      background: transparent;
+      color: var(--text-muted);
       border: none;
-      padding: 0.75rem 1.25rem;
-      border-radius: 6px;
+      padding: 0.6rem 1.2rem;
+      border-radius: 14px;
       cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
     }
 
-    nav button:hover,
-    nav button:focus {
-      background-color: var(--color-primary);
-      transform: scale(1.05);
-      outline: none;
+    nav button:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
     }
 
     nav button.active {
-      background-color: var(--color-primary);
+      background: var(--primary);
+      color: #white;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
     }
 
     main {
-      position: relative;
-      min-height: 600px;
-      overflow: hidden;
+      flex: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
     section.tab-content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
-      z-index: 0;
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 3rem;
+      animation: tabEnter 0.4s ease-out forwards;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
     }
 
     section.tab-content.active {
-      position: relative;
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-      z-index: 1;
+      display: block;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    h3::before {
+      content: '';
+      width: 8px;
+      height: 24px;
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    h4 {
+      color: var(--text);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 2rem 0 1rem;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    ul li {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      padding: 0.75rem 1.25rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    ul li:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: var(--primary);
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    ul li::before {
+      content: '→';
+      color: var(--primary);
+      font-weight: 800;
     }
 
     iframe {
       width: 100%;
-      height: 480px;
-      border: none;
-      margin-top: 2rem;
-      transition: box-shadow 0.3s ease;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: #000;
+      margin-top: 1rem;
+      overflow: hidden;
     }
 
-    iframe:hover {
-      box-shadow: 0 0 10px var(--color-primary);
+    .nav-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 0.85rem 1.5rem;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-top: 0.5rem;
+    }
+
+    .nav-button:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
+      border-color: transparent;
     }
 
     footer {
       text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #666;
+      padding: 4rem 1.5rem;
+      margin-top: 4rem;
+      background: rgba(0,0,0,0.2);
     }
 
-    .nav-button {
-      display: inline-block;
-      background-color: var(--color-primary);
-      color: #fff;
-      padding: 0.75rem 1.25rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.3s;
+    footer p {
+      max-width: 600px;
+      margin: 0.5rem auto;
+      font-size: 0.75rem;
+      font-weight: 600;
     }
 
-    .nav-button:hover {
-      background-color: #5aa0ff;
-      transform: scale(1.05);
-    }
-
-    ul {
-      margin-bottom: 1rem;
-      padding-left: 1.2rem;
+    footer hr {
+      width: 40px;
+      margin: 1.5rem auto;
+      border-top-color: var(--text-muted);
+      opacity: 0.2;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 600px) {
-      header img {
-        width: 90px;
-        height: 90px;
-      }
+    @keyframes tabEnter {
+      from { opacity: 0; transform: scale(0.98) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
 
-      h1 {
-        font-size: 1.5rem;
-      }
-
-      h2 {
-        font-size: 1rem;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 1rem 0.5rem;
-      }
-
-      nav button {
-        width: 100%;
-        max-width: 300px;
-        font-size: 0.9rem;
-        padding: 0.6rem 1rem;
-      }
-
-      section.tab-content {
-        margin: 1.5rem auto;
-        padding: 0 0.5rem;
-      }
-
-      iframe {
-        height: 300px;
-      }
-
-      .nav-button {
-        display: block;
-        width: 100%;
-        max-width: 300px;
-        margin: 0.5rem auto;
-        text-align: center;
-      }
+    @media (max-width: 768px) {
+      section.tab-content { padding: 1.5rem; border-radius: 24px; }
+      nav { width: 100%; border-radius: 0; top: 0; max-width: none; }
+      h1 { font-size: 1.8rem; }
+      ul { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -282,217 +355,209 @@
     <button class="tab-btn" data-tab="personal" role="tab" aria-selected="false">Personal</button>
   </nav>
 
-  <main class="tab-wrapper">
-   <div class="tab-wrapper">
-  <!-- Overview -->
-  <section id="overview" class="tab-content active">
-    <h3>Overview</h3>
-    <p>Derrick Richard is a student at Poth High School, graduating in 2029. He enjoys playing saxophone, composing music, programming, and finance.</p>
-<hr>
-    <h4>Featured Score</h4>
-    <p><strong>Refractions – A Marching Show</strong></p>
-    <iframe src="https://flat.io/embed/693b76f4c66d651be656a882?appId=693e0baf0e7cb77eef040f0a" height="450" width="100%" frameBorder="0" allowfullscreen allow="autoplay; midi"></iframe>
-  </section>
+  <main>
+    <!-- Overview -->
+    <section id="overview" class="tab-content active">
+      <h3>Overview</h3>
+      <p>Derrick Richard is a student at Poth High School, graduating in 2029. He enjoys playing saxophone, composing music, programming, and finance.</p>
+      <hr>
+      <h4>Featured Score</h4>
+      <p><strong>Refractions – A Marching Show</strong></p>
+      <iframe src="https://flat.io/embed/693b76f4c66d651be656a882?appId=693e0baf0e7cb77eef040f0a" height="450" frameBorder="0" allowfullscreen allow="autoplay; midi"></iframe>
+    </section>
 
-  <!-- Composing -->
-  <section id="composing" class="tab-content">
-    <h3>Composing</h3>
-    <p>Derrick focuses on marching band arrangements and drum cadences, with occasional concert pieces and solos.</p>
-<hr>
-    <h4>Featured Score</h4>
-    <p><strong>Animal I Have Become – Marching Band Arrangement</strong></p>
-    <iframe src="https://flat.io/embed/68fd10b7eaf62d602e4bbb16?_l=true&sharingKey=302bf747450065118c84efb5ad862f4bad7d6fe7c28af337ec311fa3910915dce5e73bee5e823de3fc0e88da1e633acf2dab3a1af1fd034a582dea31a3744398&layout=responsive" allowfullscreen allow="autoplay; midi"></iframe>
+    <!-- Composing -->
+    <section id="composing" class="tab-content">
+      <h3>Composing</h3>
+      <p>Derrick focuses on marching band arrangements and drum cadences, with occasional concert pieces and solos.</p>
+      <hr>
+      <h4>Featured Score</h4>
+      <p><strong>Animal I Have Become – Marching Band Arrangement</strong></p>
+      <iframe src="https://flat.io/embed/68fd10b7eaf62d602e4bbb16?_l=true&sharingKey=302bf747450065118c84efb5ad862f4bad7d6fe7c28af337ec311fa3910915dce5e73bee5e823de3fc0e88da1e633acf2dab3a1af1fd034a582dea31a3744398&layout=responsive" height="450" allowfullscreen allow="autoplay; midi"></iframe>
+      <br><br>
+      <h4>Flat.io Profile</h4>
+      <a href="https://flat.io/@derrick_richard" target="_blank" class="nav-button" rel="me">Visit Derrick's Flat.io Profile</a>
+    </section>
 
-    <h4>Flat.io Profile</h4>
-    <a href="https://flat.io/@derrick_richard" target="_blank" class="nav-button" rel="me">Visit Derrick's Flat.io Profile</a>
-  </section>
+    <!-- Programming -->
+    <section id="webdev" class="tab-content">
+      <h3>Programming</h3>
+      <h4>Dev Community</h4>
+      <p>Derrick regularly publishes in‑depth articles on subjects he knows well, offering clear and detailed insights across a wide range of topics.</p>
+      <a href="https://dev.to/derrickrichard" target="_blank" class="nav-button" rel="me">Visit Profile</a>
+      <hr>
+      <p>Derrick builds clean, functional interfaces and interactive tools. Below are some featured projects:</p>
+      
+      <h4>Security Projects</h4>
+      <p><strong>CensorCore</strong> – CensorCore is a lightweight JavaScript library for detecting explicit or inappropriate text using a centralized JSON wordlist. It integrates with a single script tag and one function call.</p>
+      <a href="https://derrickrichard.github.io/CensorCore-Library/" target="_blank" class="nav-button">Visit Official CensorCore Site</a>
+      
+      <p><strong>FileLock</strong> – Encrypt files into self-unlocking HTML pages with password and expiration options.</p>
+      <a href="https://derrickrichard.github.io/FileLock/" target="_blank" class="nav-button">Visit FileLock</a>
 
-  <!-- Programming -->
-  <section id="webdev" class="tab-content">
-    <h3>Programming</h3>
-    <h4>Dev Community</h4>
-    <p>Derrick regularly publishes in‑depth articles on subjects he knows well, offering clear and detailed insights across a wide range of topics.</p>
-    <a href="https://dev.to/derrickrichard" target="_blank" class="nav-button" rel="me">Visit Profile</a>
-    <br>
-    <h4>daily.dev</h4>
-    <p>Derrick is active on daily.dev as well as Dev.to, posting the same articles.</p>
-    <a href="https://app.daily.dev/derrickrichard44" target="_blank" class="nav-button" rel="me">Visit Profile</a>
-    <hr>
-    <p>Derrick builds clean, functional interfaces and interactive tools. Below are some featured projects:</p>
-<hr>
-    <h4>Security Projects</h4>
+      <p><strong>FileProof</strong> – Compare file hashes to detect unauthorized changes. Lightweight and browser-based.</p>
+      <a href="https://derrickrichard.github.io/FileProof/" target="_blank" class="nav-button">Visit FileProof</a>
 
-    <p><strong>CensorCore</strong> – CensorCore is a lightweight JavaScript library for detecting explicit or inappropriate text using a centralized JSON wordlist. It integrates with a single script tag and one function call.</p>
-    <a href="https://derrickrichard.github.io/CensorCore-Library/" target="_blank" class="nav-button">Visit Official CensorCore Site</a>
-    
-    <p><strong>FileLock</strong> – Encrypt files into self-unlocking HTML pages with password and expiration options.</p>
-    <a href="https://derrickrichard.github.io/FileLock/" target="_blank" class="nav-button">Visit FileLock</a>
+      <hr>
+      <h4>Creative Projects</h4>
+      <p><strong>Nexus Planner</strong> A personal planner designed for students, running entirely without any backend or servers, and has advanced features.</p>
+      <a href="https://nexusplanner.github.io" target="_blank" class="nav-button">Visit The Nexus Planner</a>
+      
+      <p><strong>CoreChat</strong> – CoreChat is a production-ready communication platform that utilizes WebRTC to establish direct connections between users. Unlike traditional chat apps, CoreChat does not store your messages on a server. Everything happens directly in your browser.</p>
+      <a href="https://derrickrichard.github.io/CoreChat/" target="_blank" class="nav-button">Visit CoreChat</a>
+      
+      <p><strong>Storm Generation</strong> – A tool for teachers to fairly create groups and randomly select names.</p>
+      <a href="https://stormgeneration.github.io/StormGeneration/" target="_blank" class="nav-button">Visit Storm Generation</a>
+      
+      <p><strong>This Site</strong> Derrick's Personal Profile.</p>
 
-    <p><strong>FileProof</strong> – Compare file hashes to detect unauthorized changes. Lightweight and browser-based.</p>
-    <a href="https://derrickrichard.github.io/FileProof/" target="_blank" class="nav-button">Visit FileProof</a>
+      <p><strong>Santa Dash - Christmas Game</strong> - A game made for christmas fun! Similar to Subway Surfers. </p>
+      <a href="https://derrickrichard.github.io/santadash/" target="_blank" class="nav-button">Play Santa Dash!</a>
+      
+      <hr>
+      <h4>Poth TAFE Projects</h4>
+      <p><strong>Officer Dashboard</strong> – Private dashboard for TAFE officers. This site is password protected.</p>
+      <a href="https://pothtafe.github.io/Dashboard/" target="_blank" class="nav-button" rel="author">Visit Officer Dashboard</a>
 
-    <hr>
-    <h4>Creative Projects</h4>
- <p><strong>Nexus Planner</strong> A personal planner designed for students, running entirely without any backend or servers, and has advanced features.</p>
-    <a href="https://derrickrichard.github.io/CoreChat/" target="_blank" class="nav-button">Visit CoreChat</a>
-    
-    <p><strong>CoreChat</strong> – CoreChat is a production-ready communication platform that utilizes WebRTC to establish direct connections between users. Unlike traditional chat apps, CoreChat does not store your messages on a server. Everything happens directly in your browser.</p>
-    <a href="https://derrickrichard.github.io/CoreChat/" target="_blank" class="nav-button">Visit CoreChat</a>
-    
-    <p><strong>Storm Generation</strong> – A tool for teachers to fairly create groups and randomly select names.</p>
-    <a href="https://stormgeneration.github.io/StormGeneration/" target="_blank" class="nav-button">Visit Storm Generation</a>
-<p><strong>This Site</strong> Derrick's Personal Profile.</p>
+      <p><strong>Member Dashboard</strong> – Internal resources for TAFE members.</p>
+      <a href="https://pothtafe.github.io/MemberDashboard/" target="_blank" class="nav-button" rel="author">Visit Member Dashboard</a>
 
-    <p><strong>Santa Dash - Christmas Game</strong> - A game made for christmas fun! Similar to Subway Surfers. </p>
-    <a href="https://derrickrichard.github.io/santadash/" target="_blank" class="nav-button">Play Santa Dash!</a>
-    
-    <hr>
-    <h4>Poth TAFE Projects</h4>
-    <p><strong>Officer Dashboard</strong> – Private dashboard for TAFE officers. This site is password protected.</p>
-    <a href="https://pothtafe.github.io/Dashboard/" target="_blank" class="nav-button" rel="author">Visit Officer Dashboard</a>
+      <p><strong>Public Page</strong> – General information and updates.</p>
+      <a href="https://pothtafe.github.io/pothtafe/" target="_blank" class="nav-button" rel="author">Visit Public Page</a>
 
-    <p><strong>Member Dashboard</strong> – Internal resources for TAFE members.</p>
-    <a href="https://pothtafe.github.io/MemberDashboard/" target="_blank" class="nav-button" rel="author">Visit Member Dashboard</a>
+      <p><strong>Main Page</strong> – Central landing page for all TAFE resources.</p>
+      <a href="https://pothtafe.github.io/home/" target="_blank" class="nav-button" rel="author">Visit Main Page</a>
+      
+      <hr>
+      <h4>Robotics</h4>
+      <p><strong>Robot Programs</strong> – The program for moving a robot to compete in competitions.</p>
+      <a href="https://github.com/DerrickRichard/pothRobotics_25-26" target="_blank" class="nav-button" rel="me">GitHub Repository</a>
+      
+      <hr>
+      <h4>More Projects Coming Soon</h4>
+      <p>Derrick is actively working on new tools and experiments in JavaScript, CSS animations, Java, JSON, and responsive design.</p>
+    </section>
 
-    <p><strong>Public Page</strong> – General information and updates.</p>
-    <a href="https://pothtafe.github.io/pothtafe/" target="_blank" class="nav-button" rel="author">Visit Public Page</a>
+    <!-- Skills -->
+    <section id="skills" class="tab-content">
+      <h3>Skills</h3>
+      <p>Here are some of Derrick Richard's technical and creative skills.</p>
+      <hr>
+      <h4>Programming</h4>
+      <ul>
+        <li>HTML</li>
+        <li>CSS (Cascade Styling)</li>
+        <li>JavaScript</li>
+        <li>Java</li>
+        <li>JSON</li>
+      </ul>
+      <hr>
+      <h4>Music</h4>
+      <ul>
+        <li>Music Composition</li>
+        <li>Saxophone Performance</li>
+      </ul>
+      <hr>
+      <h4>Finance</h4>
+      <ul>
+        <li>Finance Tracking and Management</li>
+      </ul>
+    </section>
 
-    <p><strong>Main Page</strong> – Central landing page for all TAFE resources.</p>
-    <a href="https://pothtafe.github.io/home/" target="_blank" class="nav-button" rel="author">Visit Main Page</a>
-<hr>
-    <h4>Robotics</h4>
-    <p><strong>Robot Programs</strong> – The program for moving a robot to compete in competitions.</p>
-    <a href="https://github.com/DerrickRichard/pothRobotics_25-26" target="_blank" class="nav-button" rel="me">GitHub Repository</a>
-    <hr>
-    <h4>More Projects Coming Soon</h4>
-    <p>Derrick is actively working on new tools and experiments in JavaScript, CSS animations, Java, JSON, and responsive design.</p>
+    <!-- Achievements -->
+    <section id="achievements" class="tab-content">
+      <h3>Achievements</h3>
+      <p>Notable accomplishments Derrick Richard has earned.</p>
+      <hr>
+      <ul>
+        <li>Outstanding Woodwind Musician – 2023</li>
+        <li>Esprit Ee Corps – 2025</li>
+        <li>5:30 Mile Time – 2023–2025</li>
+        <li>Second Chair Tenor Saxophonist – ATSSB Region Band – 2024-2025</li>
+        <li>Second Chair Baritone Saxophonist – ATSSB Region Band – 2025-2026 | Advanced to Area Auditions</li>
+        <li>ATSSB Area Finalist – ATSSB Area Band – 2025-2026 | 9th Chair</li>
+      </ul>
+    </section>
 
-  </section>
+    <!-- Roles -->
+    <section id="roles" class="tab-content">
+      <h3>Roles</h3>
+      <p>Current and past leadership and technical roles.</p>
+      <hr>
+      <h4>Poth TAFE</h4>
+      <ul>
+        <li>Treasurer</li>
+        <li>Websites Manager</li>
+      </ul>
+      <hr>
+      <h4>Poth Robotics</h4>
+      <ul>
+        <li>Programmer</li>
+        <li>Website Manager</li>
+        <li>Database Manager</li>
+      </ul>
+      <hr>
+      <h4>One Act Play</h4>
+      <ul>
+        <li>Stage Manager</li>
+      </ul>
+    </section>
 
-  <!-- Skills -->
-  <section id="skills" class="tab-content">
-    <h3>Skills</h3>
-    <p>Here are some of Derrick Richard's technical and creative skills.</p>
-<hr>
-    <h4>Programming</h4>
-    <ul>
-      <li>HTML</li>
-      <li>CSS (Cascade Styling)</li>
-      <li>JavaScript</li>
-      <li>Java</li>
-      <li>JSON</li>
-    </ul>
-<hr>
-    <h4>Music</h4>
-    <ul>
-      <li>Music Composition</li>
-      <li>Saxophone Performance</li>
-    </ul>
-<hr>
-    <h4>Finance</h4>
-    <ul>
-      <li>Finance Tracking and Management</li>
-    </ul>
-    <hr>
-  </section>
+    <!-- Future Goals -->
+    <section id="goals" class="tab-content">
+      <h3>Future Goals</h3>
+      <p>Derrick's aspirations and long-term ambitions.</p>
+      <hr>
+      <ul>
+        <li>Become a U.S. Navy SEAL Sniper</li>
+        <li>Earn a Degree in Music</li>
+        <li>Become a Professional Musician</li>
+        <li>Join DCI as a Trumpetist</li>
+        <li>Create his own Operating System</li>
+        <li>Launch and grow multiple businesses, with a focus on finance and programming</li>
+      </ul>
+    </section>
 
-  <!-- Achievements -->
-  <section id="achievements" class="tab-content">
-    <h3>Achievements</h3>
-    <p>Notable accomplishments Derrick Richard has earned.</p>
-    <hr>
-    <ul>
-      <li>Outstanding Woodwind Musician – 2023</li>
-      <li>Esprit Ee Corps – 2025</li>
-      <li>5:30 Mile Time – 2023–2025</li>
-      <li>Second Chair Tenor Saxophonist – ATSSB Region Band – 2024-2025</li>
-       <li>Second Chair Baritone Saxophonist – ATSSB Region Band – 2025-2026 | Advanced to Area Auditions</li>
-      <li>ATSSB Area Finalist – ATSSB Area Band – 2025-2026 | 9th Chair</li>
-    </ul>
-  </section>
-
-  <!-- Roles -->
-  <section id="roles" class="tab-content">
-    <h3>Roles</h3>
-    <p>Current and past leadership and technical roles.</p>
-    <hr>
-
-    <h4>Poth TAFE</h4>
-    <ul>
-      <li>Treasurer</li>
-      <li>Websites Manager</li>
-    </ul>
-<hr>
-    <h4>Poth Robotics</h4>
-    <ul>
-      <li>Programmer</li>
-      <li>Website Manager</li>
-      <li>Database Manager</li>
-    </ul>
-    <hr>
-    <h4>One Act Play</h4>
-    <ul>
-      <li>Stage Manager</li>
-    </ul>
-  </section>
-
-  <!-- Future Goals -->
-  <section id="goals" class="tab-content">
-    <h3>Future Goals</h3>
-    <p>Derrick's aspirations and long-term ambitions.</p>
-    <hr>
-    <ul>
-      <li>Become a U.S. Navy SEAL Sniper</li>
-      <li>Earn a Degree in Music</li>
-      <li>Become a Professional Musician</li>
-      <li>Join DCI as a Trumpetist</li>
-      <li>Create his own Operating System</li>
-      <li>Launch and grow multiple businesses, with a focus on finance and programming</li>
-    </ul>
-  </section>
-
-  <!-- Personal -->
-  <section id="personal" class="tab-content">
-    <h3>Personal</h3>
-    <p>More about Derrick Richard's interests and lifestyle.</p>
-    <hr>
-
-    <h4>Favorite Music Artists</h4>
-    <ul>
-      <li>Linkin Park</li>
-      <li>Slipknot</li>
-      <li>30 Seconds To Mars</li>
-      <li>Three Days Grace</li>
-      <li>System Of A Down</li>
-      <li>Meshuggah</li>
-    </ul>
-
-    <h4>Musical Instruments</h4>
-    <ul>
-      <li>Soprano Saxophone</li>
-      <li>Alto Saxophone</li>
-      <li>Tenor Saxophone</li>
-      <li>Baritone Saxophone</li>
-    </ul>
-
-    <h4>Favorite Sport</h4>
-    <ul>
-      <li>Track and Field</li>
-    </ul>
-
-    <h4>Longest Distance Ever Ran</h4>
-    <ul>
-      <li>12 Miles – Time: 1 hour and 22 minutes</li>
-    </ul>
-  </section>
-</div>
-</main>
+    <!-- Personal -->
+    <section id="personal" class="tab-content">
+      <h3>Personal</h3>
+      <p>More about Derrick Richard's interests and lifestyle.</p>
+      <hr>
+      <h4>Favorite Music Artists</h4>
+      <ul>
+        <li>Linkin Park</li>
+        <li>Slipknot</li>
+        <li>30 Seconds To Mars</li>
+        <li>Three Days Grace</li>
+        <li>System Of A Down</li>
+        <li>Meshuggah</li>
+      </ul>
+      <hr>
+      <h4>Musical Instruments</h4>
+      <ul>
+        <li>Soprano Saxophone</li>
+        <li>Alto Saxophone</li>
+        <li>Tenor Saxophone</li>
+        <li>Baritone Saxophone</li>
+      </ul>
+      <hr>
+      <h4>Favorite Sport</h4>
+      <ul>
+        <li>Track and Field</li>
+      </ul>
+      <hr>
+      <h4>Longest Distance Ever Ran</h4>
+      <ul>
+        <li>12 Miles – Time: 1 hour and 22 minutes</li>
+      </ul>
+    </section>
+  </main>
 
   <footer>
     <p>
-      <a href="https://derrickrichard.github.io/profile/" target="_blank" rel="me" style="color: var(--color-primary); text-decoration: none;">Derrick Richard's Profile</a> by
-      <a href="https://derrickrichard.github.io/profile/" target="_blank" rel="me" style="color: var(--color-primary); text-decoration: none;">Derrick Richard</a> is marked
-      <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: none;">CC0 1.0 Universal</a>
+      <a href="https://derrickrichard.github.io/profile/" target="_blank" rel="me" style="color: var(--primary); text-decoration: none;">Derrick Richard's Profile</a> by
+      <a href="https://derrickrichard.github.io/profile/" target="_blank" rel="me" style="color: var(--primary); text-decoration: none;">Derrick Richard</a> is marked
+      <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: none;">CC0 1.0 Universal</a>
       <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" style="max-width: 1em; max-height: 1em; margin-left: .2em; vertical-align: middle;">
       <img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg" alt="Zero" style="max-width: 1em; max-height: 1em; margin-left: .2em; vertical-align: middle;">
     </p>
@@ -500,63 +565,61 @@
     <p>Last updated: January 16, 2026 at 7:27 P.M.</p>
   </footer>
 
-    <script>
-  const buttons = document.querySelectorAll('.tab-btn');
-  const tabs = document.querySelectorAll('.tab-content');
+  <script>
+    const buttons = document.querySelectorAll('.tab-btn');
+    const tabs = document.querySelectorAll('.tab-content');
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.dataset.tab;
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.tab;
 
-      // Update button states
-      buttons.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
+        // Update button states
+        buttons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        // Update tab visibility
+        tabs.forEach(tab => {
+          tab.classList.remove('active');
+        });
+
+        const activeTab = document.getElementById(targetId);
+        activeTab.classList.add('active');
       });
-
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-
-      // Update tab visibility
-      tabs.forEach(tab => {
-        tab.classList.remove('active');
-        tab.setAttribute('hidden', 'true');
-      });
-
-      const activeTab = document.getElementById(targetId);
-      activeTab.classList.add('active');
-      activeTab.removeAttribute('hidden');
     });
-  });
 
-  // Secret key combo logic
-  let key4 = false;
-  let key5 = false;
-  let comboTimer;
+    // Secret key combo logic
+    let key4 = false;
+    let key5 = false;
+    let comboTimer;
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === '4') key4 = true;
-    if (e.key === '5') key5 = true;
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '4') key4 = true;
+      if (e.key === '5') key5 = true;
 
-    clearTimeout(comboTimer);
-    comboTimer = setTimeout(() => {
-      if (key4 && key5 && document.getElementById('webdev').classList.contains('active')) {
-        const input = prompt("Enter password to access all projects:");
-        if (input === "allprojects") {
-          window.location.href = "https://derrickrichard.github.io/allprojects/";
-        } else {
-          alert("Incorrect password.");
+      clearTimeout(comboTimer);
+      comboTimer = setTimeout(() => {
+        if (key4 && key5 && document.getElementById('webdev').classList.contains('active')) {
+          const input = prompt("Enter password to access all projects:");
+          if (input === "allprojects") {
+            window.location.href = "https://derrickrichard.github.io/allprojects/";
+          } else {
+            alert("Incorrect password.");
+          }
         }
-      }
-      key4 = false;
-      key5 = false;
-    }, 300);
-  });
+        key4 = false;
+        key5 = false;
+      }, 300);
+    });
 
-  document.addEventListener('keyup', (e) => {
-    if (e.key === '4') key4 = false;
-    if (e.key === '5') key5 = false;
-  });
+    document.addEventListener('keyup', (e) => {
+      if (e.key === '4') key4 = false;
+      if (e.key === '5') key5 = false;
+    });
   </script>
 </body>
 </html>
